@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,10 +12,15 @@ import android.widget.Toast;
 
 public class home extends AppCompatActivity {
 
+    private Usuario usuario;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        Intent intent = getIntent();
+        this.usuario = (Usuario) intent.getSerializableExtra("usuario");
+        //Log.i("HelloDebug", this.usuario.getLogin());
     }
 
     public boolean onCreateOptionsMenu(Menu menu){
@@ -25,8 +31,8 @@ public class home extends AppCompatActivity {
     public boolean onOptionsItemSelected( MenuItem item){
         switch ( item.getItemId()){
             case R.id.info:
-                // open new intent.
                 Intent intent = new Intent(this, UsuarioInfo.class);
+                intent.putExtra("usuario", this.usuario);
                 startActivity(intent);
 
             default:

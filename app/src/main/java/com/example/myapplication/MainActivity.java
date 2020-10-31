@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -40,10 +41,16 @@ public class MainActivity extends AppCompatActivity {
         EditText newLogin = (EditText)findViewById(R.id.newLogin);
         EditText newSenha = (EditText)findViewById(R.id.newSenha);
 
-        /**
-         here we get the user
-         **/
-        Toast.makeText(this, "login made", Toast.LENGTH_SHORT).show();
-        startActivity(intent);
+        UsuarioDAO usuarioDAO = new UsuarioDAO(this);
+        Usuario usuario = usuarioDAO.getUsuario(newLogin.getText().toString(),
+                newSenha.getText().toString());
+
+        if(usuario != null){
+            intent.putExtra("usuario", usuario);
+            Toast.makeText(this, "login made", Toast.LENGTH_SHORT).show();
+            startActivity(intent);
+        }else{
+            Toast.makeText(this, "login not made", Toast.LENGTH_SHORT).show();
+        }
     }
 }
