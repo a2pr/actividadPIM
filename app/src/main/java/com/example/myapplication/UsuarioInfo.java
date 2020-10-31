@@ -19,7 +19,9 @@ public class UsuarioInfo extends AppCompatActivity {
 
         Intent intent = getIntent();
         this.usuario = (Usuario) intent.getSerializableExtra("usuario");
+        Log.i("HelloDebug", this.usuario.getNome());
         Log.i("HelloDebug", this.usuario.getLogin());
+        Log.i("HelloDebug", this.usuario.getPassword());
 
         TextView textUsuario = (TextView) findViewById(R.id.usuarioView);
         textUsuario.setText(Html.fromHtml("<h2>Nome </h2>"+ "<p>"+this.usuario.getNome()+"</p>"

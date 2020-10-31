@@ -20,6 +20,9 @@ public class UsuarioDAO {
                 "email= '"+login+"' AND password = '"+password +"'";
         Cursor cursor = this.bancoDeDados.rawQuery(sqlQuery, null);
         if(cursor.moveToNext()){
+            Log.i("DB", cursor.getString(1));
+            Log.i("DB", cursor.getString(2));
+            Log.i("DB", cursor.getString(3));
             usuario = new Usuario(cursor.getString(1),cursor.getString(2),
                     cursor.getString(3) , cursor.getInt(4));
         }
@@ -31,8 +34,8 @@ public class UsuarioDAO {
     public boolean addUsuario(Usuario u){
 
         try{
-            String sqlCmd = "INSERT INTO Usuarios VALUES('"+
-                    u.getLogin()+"','"+u.getNome()+"','"+
+            String sqlCmd = "INSERT INTO Usuarios('nome', 'email', 'password', 'admin') VALUES('"+
+                    u.getNome()+"','"+u.getLogin()+"','"+
                     u.getPassword()+"','"+u.getAdmin()+"')"
                     ;
             this.bancoDeDados.execSQL(sqlCmd);
