@@ -20,8 +20,8 @@ public class Cadastro extends AppCompatActivity {
         EditText inputNome = (EditText)findViewById(R.id.idNovoNome);
         EditText inputSenha = (EditText)findViewById(R.id.idNovoSenha);
 
-        Usuario usuario = new Usuario( inputEmail.getText().toString(),
-                inputNome.getText().toString(),
+        Usuario usuario = new Usuario( inputNome.getText().toString(),
+                inputEmail.getText().toString(),
                 inputSenha.getText().toString(),
                 0
         );
