@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">My Application</string>
     <string name="novo">Novo Usuario</string>
+    <string name="info">Usuario Info</string>
 </resources>

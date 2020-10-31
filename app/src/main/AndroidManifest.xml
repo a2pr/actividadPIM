@@ -11,8 +11,9 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="com.google.android.actions"
-            android:resource="@xml/menu" />
+            android:resource="@xml/menu_home" />
 
+        <activity android:name=".home" />
         <activity android:name=".UsuarioInfo" />
         <activity android:name=".Cadastro" />
         <activity android:name=".MainActivity">
